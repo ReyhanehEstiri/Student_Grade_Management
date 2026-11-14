@@ -79,30 +79,12 @@ static double CalculateAverage(List<int> grades)
 
 static void CountPassedAndFailed(List<int> grades)
 {
-    if (grades.Count == 0)
-    {
-        Console.WriteLine("No grades available!");
-    }
-    else
-    {
-        int passedCount = 0;
-        int failedCount = 0;
+    int passedCount = grades.Count(g => g >= 10);
 
-        foreach (int currentGrade in grades)
-        {
-            if (currentGrade >= 10)
-            {
-                passedCount++;
-            }
-            else
-            {
-                failedCount++;
-            }
-        }
+    int failedCount = grades.Count(g => g < 10);
 
-        Console.WriteLine($"Passed Students: {passedCount}");
-        Console.WriteLine($"Failed Students: {failedCount}");
-    }
+    Console.WriteLine($"Passed: {passedCount}");
+    Console.WriteLine($"Failed: {failedCount}");
 }
 
 
